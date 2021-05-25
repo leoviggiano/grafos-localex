@@ -1,7 +1,10 @@
+import React from 'react';
+import { Home } from './pages';
+
 function App() {
   return (
     <div className="App">
-      <p>alo</p>
+      <Home />
     </div>
   );
 }
