@@ -27,21 +27,20 @@ const Container = () => {
 
   useEffect(() => {
     const filtered = allCars.filter((car) => {
-      let valid = true;
-      if (!car.color.includes(color)) valid = false;
-      if (!car.brand.includes(brand)) valid = false;
-      if (!car.state.includes(carState)) valid = false;
+      if (!car.color.includes(color)) return false;
+      if (!car.brand.includes(brand)) return false;
+      if (!car.state.includes(carState)) return false;
       if (
         (Boolean(price[0]) && car.price < price[0]) ||
         (Boolean(price[1]) && car.price > price[1])
       )
-        valid = false;
+        return false;
       if (
         (Boolean(year[0]) && car.year < year[0]) ||
         (Boolean(year[1]) && car.year > year[1])
       )
-        valid = false;
-      return valid;
+        return false;
+      return true;
     });
 
     setCars(filtered);
