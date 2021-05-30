@@ -1,15 +1,55 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import { Flex, Typography, Sidebar, Header } from '../';
+import { Flex, Sidebar, Header } from '../';
+import Car from './Car';
 
-const Home = () => (
-  <Flex minHeight="100vh">
-    <Sidebar />
-    <Flex padding="0 40px" width="100%" flexDirection="column">
-      <Header />
-      <Typography>Alo</Typography>
+const Home = ({
+  color,
+  setColor,
+  price,
+  setPrice,
+  year,
+  setYear,
+  brand,
+  setBrand,
+  cars,
+  carState,
+  setCarState,
+}) => {
+  return (
+    <Flex minHeight="100vh">
+      <Sidebar
+        {...{
+          color,
+          setColor,
+          price,
+          setPrice,
+          year,
+          setYear,
+          brand,
+          setBrand,
+          carState,
+          setCarState,
+        }}
+      />
+      <Flex padding="0 40px" width="100%" flexDirection="column">
+        <Header />
+        <Grid>
+          {cars.map((car, i) => (
+            <Car key={i} car={car} />
+          ))}
+        </Grid>
+      </Flex>
     </Flex>
-  </Flex>
-);
+  );
+};
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+  column-gap: 30px;
+  row-gap: 30px;
+`;
 
 export default Home;

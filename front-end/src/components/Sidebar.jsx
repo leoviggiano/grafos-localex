@@ -1,20 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Flex, Typography, Input } from './';
-import { GRAY, WHITE } from '../constants';
+import { Flex, Typography, Input, Select } from './';
+import { GRAY, WHITE, COLOR_OPTIONS, CAR_STATE_OPTIONS } from '../constants';
 
 import brands from '../assets/brands';
 
-const Sidebar = () => (
+const Sidebar = ({
+  color,
+  setColor,
+  price,
+  setPrice,
+  year,
+  setYear,
+  setBrand,
+  carState,
+  setCarState,
+}) => (
   <Wrapper minWidth="350px" padding="40px 10px 0 10px" flexDirection="column">
-    <Brands />
-    <Price />
-    <Year />
+    <Brands setBrand={setBrand} />
+    <Price price={price} setPrice={setPrice} />
+    <Year year={year} setYear={setYear} />
+    <CarState carState={carState} setCarState={setCarState} />
+    <Color color={color} setColor={setColor} />
   </Wrapper>
 );
 
-const Year = () => (
+const Year = ({ year, setYear }) => (
   <Section>
     <Typography mb="10px" size="14px">
       Ano:
@@ -24,7 +36,13 @@ const Year = () => (
         <Typography radius="5px" bgColor={GRAY} padding="3px 5px" mr="5px">
           DE
         </Typography>
-        <Input width="90px" height="20px" />
+        <Input
+          width="90px"
+          height="20px"
+          value={year[0]}
+          type="number"
+          onChange={(e) => setYear([Number(e.target.value), year[1]])}
+        />
       </Flex>
       <Flex alignItems="center">
         <Typography
@@ -36,13 +54,19 @@ const Year = () => (
         >
           ATÉ
         </Typography>
-        <Input width="90px" height="20px" />
+        <Input
+          width="90px"
+          height="20px"
+          type="number"
+          value={year[1]}
+          onChange={(e) => setYear([year[0], Number(e.target.value)])}
+        />
       </Flex>
     </Flex>
   </Section>
 );
 
-const Price = () => (
+const Price = ({ price, setPrice }) => (
   <Section>
     <Typography mb="10px" size="14px">
       Valor:
@@ -52,7 +76,13 @@ const Price = () => (
         <Typography radius="5px" bgColor={GRAY} padding="3px 5px" mr="5px">
           MIN
         </Typography>
-        <Input width="90px" height="20px" />
+        <Input
+          width="90px"
+          height="20px"
+          type="number"
+          value={price[0]}
+          onChange={(e) => setPrice([Number(e.target.value), price[1]])}
+        />
       </Flex>
       <Flex alignItems="center">
         <Typography
@@ -64,13 +94,19 @@ const Price = () => (
         >
           MAX
         </Typography>
-        <Input width="90px" height="20px" />
+        <Input
+          width="90px"
+          height="20px"
+          type="number"
+          value={price[1]}
+          onChange={(e) => setPrice([price[0], Number(e.target.value)])}
+        />
       </Flex>
     </Flex>
   </Section>
 );
 
-const Brands = () => {
+const Brands = ({ setBrand }) => {
   const icons = Object.entries(brands).map((i) => i);
   return (
     <Section flexDirection="column">
@@ -79,9 +115,46 @@ const Brands = () => {
       </Typography>
       <Images>
         {icons.map(([key, value]) => (
-          <img key={key} src={value} alt={key}></img>
+          <img
+            onClick={() => setBrand(key)}
+            key={key}
+            src={value}
+            alt={key}
+          ></img>
         ))}
       </Images>
+    </Section>
+  );
+};
+
+const Color = ({ setColor, color }) => {
+  return (
+    <Section>
+      <Typography mb="10px" size="14px">
+        Cor:
+      </Typography>
+      <Select
+        selected={color ? color : ''}
+        onChange={(e) => setColor(e)}
+        options={COLOR_OPTIONS}
+        shadow="0 3px 6px rgba(0, 0, 0, 0.23)"
+      />
+    </Section>
+  );
+};
+
+const CarState = ({ setCarState, carState }) => {
+  return (
+    <Section>
+      <Typography mb="10px" size="14px">
+        Estado:
+      </Typography>
+      <Select
+        selected={carState ? carState : ''}
+        onChange={(e) => setCarState(e)}
+        options={CAR_STATE_OPTIONS}
+        shadow="0 3px 6px rgba(0, 0, 0, 0.23)"
+      />
     </Section>
   );
 };
