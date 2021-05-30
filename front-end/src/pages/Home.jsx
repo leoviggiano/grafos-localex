@@ -1,7 +1,11 @@
 import React from 'react';
 
-import { Home } from '../containers'
+import { Home } from '../containers';
 
-const Page = () => <Home />
+const Page = () => (
+  <>
+    <Home />
+  </>
+);
 
-export default Page
+export default Page;
