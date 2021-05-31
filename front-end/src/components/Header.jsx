@@ -8,9 +8,7 @@ const Header = () => {
       <Typography weight="300" size="32px">
         Localex
       </Typography>
-      <Flex alignItems="center">
-        <Typography>aaa</Typography>
-      </Flex>
+      <Flex alignItems="center"></Flex>
     </Flex>
   );
 };

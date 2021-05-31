@@ -22,7 +22,14 @@ const Container = () => {
   const [brand, setBrand] = useState('');
   const [carState, setCarState] = useState('');
 
-  const [allCars, setAllCars] = useState([defaultCar]);
+  const [allCars, setAllCars] = useState([
+    defaultCar,
+    defaultCar,
+    defaultCar,
+    defaultCar,
+    defaultCar,
+    defaultCar,
+  ]);
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
