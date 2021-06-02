@@ -50,6 +50,7 @@ const Grid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
   column-gap: 30px;
   row-gap: 30px;
+  padding-bottom: 30px;
 `;
 
 export default Home;

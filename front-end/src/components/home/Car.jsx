@@ -3,6 +3,11 @@ import styled from 'styled-components';
 
 import { Card, Flex, Typography, Button } from '../';
 
+const toTitleCase = (str = '') =>
+  str.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+
 const Car = ({ car }) => (
   <Card height="520px" padding="0" br="10px">
     <Flex flexDirection="column">
@@ -20,7 +25,7 @@ const Car = ({ car }) => (
         <Flex flexDirection="column">
           <Typography mb="10px">Ano: {car.year}</Typography>
           <Typography mb="10px">Cor: {car.color}</Typography>
-          <Typography mb="10px">Marca: {car.brand}</Typography>
+          <Typography mb="10px">Marca: {toTitleCase(car.brand)}</Typography>
           <Typography mb="30px">Estado: {car.state}</Typography>
         </Flex>
         <Button>Contatar vendedor</Button>
@@ -31,6 +36,7 @@ const Car = ({ car }) => (
 
 const Img = styled.img`
   max-width: 300px;
+  max-height: 211px;
 `;
 
 export default Car;

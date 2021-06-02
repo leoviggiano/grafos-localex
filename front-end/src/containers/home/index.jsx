@@ -2,34 +2,14 @@ import React, { useEffect, useState } from 'react';
 
 import { Home } from '../../components';
 
-import volks from '../../assets/cars/volkswagen-virtus.jpg';
-
-const defaultCar = {
-  img: volks,
-  name: 'Volkswagen Virtus',
-  brand: 'volkswagen',
-  year: 2010,
-  color: 'branco',
-  state: 'usado',
-  price: 1599.99,
-  description: '1.4 250 TSI GTS AUTOMÁTICO',
-};
-
+import generateCars from './../../assets/defaultCars';
 const Container = () => {
   const [color, setColor] = useState('');
   const [price, setPrice] = useState(['', '']);
   const [year, setYear] = useState(['', '']);
   const [brand, setBrand] = useState('');
   const [carState, setCarState] = useState('');
-
-  const [allCars, setAllCars] = useState([
-    defaultCar,
-    defaultCar,
-    defaultCar,
-    defaultCar,
-    defaultCar,
-    defaultCar,
-  ]);
+  const [allCars, setAllCars] = useState(generateCars());
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
