@@ -16,6 +16,8 @@ const Home = ({
   cars,
   carState,
   setCarState,
+  setCars,
+  allCars,
 }) => {
   return (
     <Flex minHeight="100vh">
@@ -34,7 +36,7 @@ const Home = ({
         }}
       />
       <Flex padding="0 40px" width="100%" flexDirection="column">
-        <Header />
+        <Header {...{ allCars, setCars }} />
         <Grid>
           {cars.map((car, i) => (
             <Car key={i} car={car} />
