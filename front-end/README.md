@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Localex - Sistema de seleção de carros
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O tema inicialmente partiu do setor de aluguel de carros, assim como faz a Unidas, Localiza, Kayak, Movida, Lokamig, entre outros. Com isso, foi-se observado que em todas essas plataformas existia um sistema de filtro que levava em consideração os interesses do usuário ao escolher um carro para alugar ou, até mesmo, comprar. Esses interesses se basevam em, por exemplo, marca, valor, ano, estado (novo ou usado) e cor do carro.
 
-## Available Scripts
+Portanto, foi desenvolvida uma plataforma inspirada na Webmotors em que é possível encontrar o carro mais adequado de acordo com os gostos do usuário. Para isso, foi necessário contruir um sistema de filtro baseado em grafos na qual um subconjunto de carros era interseccionado a partir do conjunto da base de todos os carros cadastrados.
 
-In the project directory, you can run:
+Siga as imagens a seguir para ficar um pouco mais claro a solução:
 
-### `yarn start`
+Grafo em estado inicial da aplicação:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Grafo 1](https://cdn.discordapp.com/attachments/490484774700318740/850465630447468644/Grafo1.PNG)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Grafo após o usuário selecionar seus filtros:
 
-### `yarn test`
+![Grafo 2](https://cdn.discordapp.com/attachments/490484774700318740/850465632201343046/Grafo2.PNG)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Os vértices os quais o vértice "Usuário" estão conectados representam potenciais carros que o usuário poderia se interessar.
 
-### `yarn build`
+## Instruções para executar a aplicação
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clone o repositório através do comando:
+```
+git clone https://github.com/theviggo/grafos-localex
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Navegue até a pasta front-end:
+```
+cd front-end
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Instale as dependências através do comando:
+```
+npm i
+```
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Execute a aplicação através do comando:
+```
+npm start
+```
