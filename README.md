@@ -14,7 +14,7 @@ Grafo após o usuário selecionar seus filtros:
 
 ![Grafo 2](https://cdn.discordapp.com/attachments/490484774700318740/850465632201343046/Grafo2.PNG)
 
-Os vértices os quais o vértice "Usuário" estão conectados representam potenciais carros que o usuário poderia se interessar.
+Os vértices conectados ao "Usuário" representam potenciais carros que o usuário poderia se interessar.
 
 ## Instruções para executar a aplicação
 
